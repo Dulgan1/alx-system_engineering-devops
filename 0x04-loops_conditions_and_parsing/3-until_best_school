@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Diplays best school 10 times using until
+a=0
+until [ $a -gt 9 ];
+do
+	echo "Best School"
+	((a++))
+done
