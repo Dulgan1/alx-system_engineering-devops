@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Displays clock sense numbers: after 1-59 it displays bthe hour
+HOUR=0
+while [ $HOUR -le 12 ];
+do
+	echo "Hour: $HOUR"
+	((HOUR++))
+
+	MINUTE=1
+	while [ $MINUTE -le 59 ];
+	do
+		echo "$MINUTE"
+		((MINUTE++))
+	done
+done
