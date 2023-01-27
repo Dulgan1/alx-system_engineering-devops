@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displays by ls the files without characters before -
+FILES="$(ls)"
+for i in $FILES;
+do
+    echo "$i" | cut -d "-" -f2
+done
