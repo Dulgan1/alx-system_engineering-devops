@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Terminates a process by getting pid
+
+kill "$(pgrep -f "4-to_infinty_and_beyond")"
