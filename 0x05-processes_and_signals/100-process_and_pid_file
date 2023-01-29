@@ -22,7 +22,7 @@ prompt3()
 trap "prompt3" SIGQUIT
 touch /var/run/myscript.pid
 
-whule tru;
+while true;
 do
 	echo "To infinity and beyond"
 	sleep 2
