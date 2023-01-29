@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+#
+
+prompt()
+{
+	echo "I hate the kill command"
+	rm /var/run/myscript.pid
+}
+trap "prompt" SIGTERM
+
+promt2()
+{
+	echo "Y U no love me?!"
+}
+trap "prompt2" SIGINT
+
+prompt3()
+{
+	rm /var/run/myscript.pid
+}
+trap "prompt3" SIGQUIT
+touch /var/run/myscript.pid
+
+whule tru;
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
