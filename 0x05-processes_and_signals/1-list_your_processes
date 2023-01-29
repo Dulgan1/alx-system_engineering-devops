@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays all processes of all users, including those that might not have TTY
+ps -uaxf
