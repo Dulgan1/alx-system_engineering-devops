@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Process receives kill signal from another script running in another terminal
+# Kill signal is caught and ignored; printing message instead
+prompt()
+{
+    echo "I am invincible!!!"
+}
+trap "prompt" SIGTERM
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
