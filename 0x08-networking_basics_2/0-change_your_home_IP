@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script modifies /etc/host file to edit localhost and facebook.com IP addresses
+# Copying commands for purpose of run on Docker, 
+# can not modify host file on docker directly
+
+cp /etc/hosts hosts_tmp
+sed -i s/127.*$/127.0.0.2\\tlocalhost\\n8.8.8.8\\tfacebook.com/g hosts_tmp
+cp -f hosts_tmp /etc/hosts
