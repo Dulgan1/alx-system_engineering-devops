@@ -1,1 +1,11 @@
-
+#!/usr/bin/env bash
+# Installs and configures nginx, add custom header
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo echo "Hello world!" > /var/www/html/index.nginx-debian.html
+sudo echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+REDIRECT="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+ERROR_PAGE="\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\troot \/usr\/share\/nginx\/html;\n\tinternal;}"
+CUS_HEADER="\n\tadd_header X-Served-By \$HOSTNAME;"
+sudo sed -i "s/server_name _;/$REDIRECT$CUS_HEADER$ERROR_PAGE/" /etc/nginx/sites-available/default
+sudo service nginx start
