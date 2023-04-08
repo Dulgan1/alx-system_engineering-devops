@@ -3,12 +3,12 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 CONFIG="\
-frontend http_front
+frontend front_http
     bind *:80
     mode http
-    default_backend http_back
+    default_backend back_http
 
-backend http_back
+backend back_http
     balance roundrobin
     server 129985-web-01 35.174.211.4:80 check
     server 129985-web-02 54.237.120.173:80 check"
