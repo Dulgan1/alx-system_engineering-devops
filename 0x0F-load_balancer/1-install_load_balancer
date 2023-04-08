@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Script configures load balancer HAProxy
-apt-get -y update
-apt-get -y install haproxy
+sudo apt-get -y update
+sudo apt-get -y install haproxy
 CONFIG="\
 frontend http_front
     bind *:80
@@ -12,5 +12,5 @@ backend http_back
     balance roundrobin
     server 129985-web-01 35.174.211.4:80 check
     server 129985-web-02 54.237.120.173:80 check"
-echo $CONFIG >> /etc/haproxy/haproxy.cfg
-service haproxy start
+sudo echo $CONFIG >> /etc/haproxy/haproxy.cfg
+sudo service haproxy start
