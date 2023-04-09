@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#Script prints DNS Record, sub domain, record type and destination
+
+printres ()
+{
+    printf "The subdomain %s is a " "$2"
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $4 }'
+    printf " record and points to "
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $5 }'
+    echo ""
+}
+
+if [ -z "$2" ]; then
+   for sub_domain in "www" "lb-01" "web-01" "web-02"
+   do
+       printres "$1" "$sub_domain"
+   done
+else
+    printres "$1" "$2"
+fi
