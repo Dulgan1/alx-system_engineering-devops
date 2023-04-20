@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Checks whoami after running as the user (user is provided from cmdline argument
+
+sudo -u "$1" whoami
