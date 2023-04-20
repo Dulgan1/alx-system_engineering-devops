@@ -8,10 +8,9 @@ sed -i 's/user www-data/user nginx/' /etc/nginx/nginx.conf
 chmod 755 /etc/nginx/nginx.conf
 chown nginx:nginx /etc/nginx/nginx.conf
 sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
+pkill apache2 #listens on port 8080, needs to stop.
+su -u nginx service nginx restart
 
-#exit from root
-exit
-
-sudo -u nginx service nginx restart
+exit #exit from administrator (sudo bash)
 
 
