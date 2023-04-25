@@ -4,8 +4,8 @@
     Gets users data,  match user with passed id (cmdline argument)
     and gets the user's task data
 """
-from sys import argv
 import requests
+from sys import argv
 
 
 def run_all():
@@ -25,7 +25,7 @@ def run_all():
     for task in tasks_todo:
         if task.get('userId') == int(argv[1]):
             total_num_tasks += 1
-            if task.get('completed') == True:
+            if task.get('completed') is True:
                 num_done_tasks += 1
                 tasks_list.append(task.get('title'))
     print("Employee {} is done with tasks({}/{}):".format(employee,
