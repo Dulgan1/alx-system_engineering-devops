@@ -8,7 +8,8 @@ from sys import argv
 
 
 def save_csv():
-    users = requests.get("http://jsonplaceholder.typicode.com/users").json
+    """Fetches data and write to csv"""
+    users = requests.get("http://jsonplaceholder.typicode.com/users").json()
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos',
                          params={'userId': argv[1]}).json()
 
