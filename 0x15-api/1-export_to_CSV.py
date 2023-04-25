@@ -20,5 +20,5 @@ def save_csv():
     with open('{}.csv'.format(argv[1]), 'w', newline='') as f:
         write_to = csv.writer(f, quoting=csv.QUOTE_ALL)
         for task in tasks:
-            write_to.writerow([argv[1], user_name, task.get('comoleted'),
+            write_to.writerow([argv[1], user_name, task.get('completed'),
                               task.get('title')])
