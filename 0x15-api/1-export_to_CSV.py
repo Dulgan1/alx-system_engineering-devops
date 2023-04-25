@@ -22,3 +22,6 @@ def save_csv():
         for task in tasks:
             write_to.writerow([argv[1], user_name, task.get('completed'),
                               task.get('title')])
+
+if __name__ == "__main__":
+    save_csv()
