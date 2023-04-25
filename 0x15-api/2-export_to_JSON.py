@@ -28,9 +28,8 @@ def save_json():
             t['username'] = user_name
             tasks_list.append(t)
 
-        dixt = {str(argv[1]) : tasks_list}
+        dixt = {str(argv[1]): tasks_list}
         json.dump(dixt, f)
-
 
 
 if __name__ == "__main__":
