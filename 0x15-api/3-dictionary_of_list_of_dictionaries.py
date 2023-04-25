@@ -6,6 +6,7 @@ import json
 import requests
 import sys
 
+
 def save_all():
     """Fetches all data and dumo to json"""
     users = requests.get(
@@ -31,6 +32,7 @@ def save_all():
             t['username'] = userss.get(user_id)
             dixt.get(user_id).append(t)
         json.dump(dixt, f)
+
 
 if __name__ == "__main__":
     save_all()
