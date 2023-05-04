@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# Script sets up a mysql backup as an archive using dump
-# archive file is saved date as part of name of file.
-
-mysqldump -u root -p"$1" --all-databases > backup.sql
-
-tar -zcvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
