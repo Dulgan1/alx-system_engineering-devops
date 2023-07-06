@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script shows DNS Record.
+subdomains=(www lb-01 web-01 web-02)
+if [ "$#" -eq 1 ]
+then
+    for i in "${subdomains[@]}"
+    do
+	dig $i."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 |
+	awk -vvar="$i" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+    done
+elif [ "$#" -eq 2 ]
+then
+    dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 |
+	awk -vvar="$2" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+fi
