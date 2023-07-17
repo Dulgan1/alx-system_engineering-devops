@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script uses whoami to display user.
+
+sudo -u "$1" whoami
