@@ -27,9 +27,14 @@ from sys import argv
 def read_display_data():
     """Reads and displays API data"""
     user_id = int(argv[1])
-    link = "http://jsonplaceholder.typicode.com/users/{}"
-    user = requests.get(link.format(user_id)).json()
-    user_name = user.get('name')
+    link = "http://jsonplaceholder.typicode.com/users/"
+    employees = requests.get(link)
+
+    for employee in employees:
+        if employee.get('id') == user_id:
+            user_name = employee.get('name')
+            break
+
     TOTAL_NUM_OF_TASKS = 0
     NUMBER_OF_DONE_TASKS = 0
     TASK_TITLE = []
