@@ -25,16 +25,13 @@ from sys import argv
 
 
 def read_display_data():
-    """Reads and displays API data"""
+    """Read and displays API data"""
     user_id = int(argv[1])
-    link = "http://jsonplaceholder.typicode.com/users/"
-    employees = requests.get(link)
-
-    for employee in employees:
-        if employee.get('id') == user_id:
-            user_name = employee.get('name')
+    users = requests.get("http://jsonplaceholder.typicode.com/users")
+    for u in users.json():
+        if u.get('id') == user_id:
+            EMPLOYEE_NAME = (u.get('name'))
             break
-
     TOTAL_NUM_OF_TASKS = 0
     NUMBER_OF_DONE_TASKS = 0
     TASK_TITLE = []
@@ -43,10 +40,11 @@ def read_display_data():
         if t.get('userId') == user_id:
             TOTAL_NUM_OF_TASKS += 1
             if t.get('completed') is True:
-                NUMBER_OF_DONE_TASKS += 1
-                TASK_TITLE.append(t.get('title'))
+                    NUMBER_OF_DONE_TASKS += 1
+                    TASK_TITLE.append(t.get('title'))
     print("Employee {} is done with tasks({}/{}):".format(
-          user_name, NUMBER_OF_DONE_TASKS,
+          EMPLOYEE_NAME,
+          NUMBER_OF_DONE_TASKS,
           TOTAL_NUM_OF_TASKS))
     for task in TASK_TITLE:
         print("\t {}".format(task))
