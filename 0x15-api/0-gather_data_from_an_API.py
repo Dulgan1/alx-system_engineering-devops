@@ -40,8 +40,8 @@ def read_display_data():
         if t.get('userId') == user_id:
             TOTAL_NUM_OF_TASKS += 1
             if t.get('completed') is True:
-                    NUMBER_OF_DONE_TASKS += 1
-                    TASK_TITLE.append(t.get('title'))
+                NUMBER_OF_DONE_TASKS += 1
+                TASK_TITLE.append(t.get('title'))
     print("Employee {} is done with tasks({}/{}):".format(
           EMPLOYEE_NAME,
           NUMBER_OF_DONE_TASKS,
