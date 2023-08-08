@@ -14,5 +14,5 @@ def top_ten(subreddit):
         list_d = data["data"]["children"]
         for d in list_d[:10]:
             print(d["data"]["title"])
-
-    return 'None'
+    else:
+        print('None')
