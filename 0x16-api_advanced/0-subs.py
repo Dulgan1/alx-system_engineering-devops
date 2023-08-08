@@ -8,7 +8,8 @@ def number_of_subscribers(subreddit):
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     response = requests.get(url, headers={'User-Agent': 'Alx-Dulgan'})
 
-    data = response.json()
-    no_sub = data["data"]["subscribers"]
-
-    return no_sub
+    if response.status_code == 200:
+        data = response.json()
+        no_sub = data["data"]["subscribers"]
+        return no_sub
+    return 0
