@@ -5,7 +5,7 @@ subreddit"""
 import requests
 
 
-def recurse(subreddit, hot_list=[], next_page=None, count=0):
+def recurse(subreddit, hot_list=[], next_page=None):
     """Recursive function to achieve request goal
     """
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
@@ -19,11 +19,10 @@ def recurse(subreddit, hot_list=[], next_page=None, count=0):
         data = response.json()['data']
         list_d = data['children']
         for post in list_d:
-            count += 1
             hot_list.append(post['data']['title'])
         next_page = data['after']
         if next_page is not None:
-            return recurse(subreddit, hot_list, next_page, count)
+            return recurse(subreddit, hot_list, next_page)
         else:
             return hot_list
     else:
